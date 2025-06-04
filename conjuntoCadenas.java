@@ -17,7 +17,7 @@ public class conjuntoCadenas {
         contador = 0;
     }
 
-    //Este es el conjunto anade
+    //Este es el conjunto anade, cuando esta lleno da un aviso
     public void anade(String nuevoElemento) {
         if (!contiene(nuevoElemento)) {
             if (contador < conjunto.length) {
