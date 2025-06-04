@@ -4,9 +4,6 @@ import java.util.Arrays;
 public class conjuntoCadenas {
     private String[] conjunto;
     private int contador;
-    private boolean contiene(String nuevoElemento) {
-        return false;
-    }
 
     //Este es el constructor de la clase
     public conjuntoCadenas(){
@@ -40,8 +37,39 @@ public class conjuntoCadenas {
         Arrays.sort(copia);
     }
 
+    // Cuenta cuantas cadenas contienen una subcadena
+    public int numeroInclusiones(String subcadena) {
+        int cuenta = 0;
+        for (int i = 0; i < contador; i++) {
+            if (conjunto[i].contains(subcadena)) {
+                cuenta++;
+            }
+        }
+        return cuenta;
+    }
 
+    public void eliminaNoInclusiones(String subcadena){
+        int nuevaPos = 0;
+        for (int i = 0; i < contador; i++) {
+            if (conjunto[i].contains(subcadena)) {
+                conjunto[nuevaPos++] = conjunto[i];
+            }
+        }
+        contador = nuevaPos;
+    }
 
-
-
+    // Aqui ponemos un metodo privado para saber si un elemento esta
+    private boolean contiene(String elemento) {
+        for (int i = 0; i < contador; i++) {
+            if (conjunto[i].equals(elemento)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
+
+
+
+
+
